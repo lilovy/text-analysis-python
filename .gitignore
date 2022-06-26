@@ -11,3 +11,4 @@ word_rank.db
 sql_db/csvdata.csv
 words_csv
 cloudtest.py
+.vscode
