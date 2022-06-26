@@ -27,6 +27,8 @@ def main():
     """FOURTH STEP: Create gif"""
     # create_gif('dynamic', fold='picture')
 
+    # print(sdb.return_word('month_05', 'коронавирус')[0][1])
+
 
 if __name__ == '__main__':
     main()
