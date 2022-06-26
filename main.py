@@ -1,7 +1,7 @@
 from os import listdir, path
 import re
 from wordcloud_create.crt_wordcloud import wc_from_csv
-from text_conver.load_text import *
+from text_conver.load_text import read_json_article
 from wordcloud_create.gif_create import create_gif
 import sql_db.sql_bd as sdb
 

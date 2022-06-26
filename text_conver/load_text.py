@@ -1,16 +1,14 @@
 import sys
-# sys.path.insert(1, "/text-analysis-python/sql_db")
-import sql_bd as sqldb
 import os
+sys.path.insert(1, os.getcwd())
 import json
-# from matplotlib.pyplot import text
 import pymorphy2
 import nltk
 from nltk.corpus import stopwords
 import string
 from collections import Counter
-# import sql_db.sql_bd as sqldb
-print(sys.path)
+import sql_db.sql_bd as sqldb
+
 
 def remove_chars_from_text(text: str, chars: str) -> str:
     return "".join([ch for ch in text if ch not in chars])

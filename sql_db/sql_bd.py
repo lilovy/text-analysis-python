@@ -94,6 +94,15 @@ def clear_db_tab(tab: str):
         pass
 
 
+def top_value(tab: str,
+              col: str = 'sign',
+              lim: str = ''):
+    """ lim: 'limit {number}' """
+
+    c.execute(f"select * from {tab} order by {col} desc {lim}")
+    return c.fetchall()
+
+
 def close_db():
     db.close()
 
@@ -104,3 +113,10 @@ def show_tbl():
     tables = [tab[1] for tab in c.fetchall()]
 
     return tables
+
+
+def return_word(tab: str, wrd: str):
+    c.execute(f"""SELECT * FROM {tab}
+                  WHERE word = '{wrd}'""")
+    return c.fetchall()
+
