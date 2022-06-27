@@ -7,7 +7,7 @@ lenta_news_2020_analysis
 /picture
 sql_db/word_rank.db
 .gitignore
-word_rank.db
+# word_rank.db
 sql_db/csvdata.csv
 words_csv
 cloudtest.py
