@@ -1,8 +1,6 @@
 from os import getcwd, path, mkdir, listdir
 from wordcloud import WordCloud
-from collections import defaultdict
 import csv
-import matplotlib.pyplot as plt
 
 
 def create_wordcloud(text: str, 

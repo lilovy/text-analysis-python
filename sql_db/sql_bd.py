@@ -1,8 +1,6 @@
 from os import getcwd, listdir, mkdir, path
 import sqlite3
 import pandas as pd
-from glob import glob
-from os.path import expanduser
 
 
 def create_db(db_name: str,
@@ -15,7 +13,7 @@ c = db.cursor()
 
 
 def sql_to_csv(tab: str,
-               dirs: str = 'words_csv'):
+               dirs: str):
     pj_dir = getcwd()
     if dirs not in listdir():
         mkdir(path.join(pj_dir, dirs)) 
@@ -94,6 +92,12 @@ def clear_db_tab(tab: str):
         pass
 
 
+def rename_tbl(tabold: str, tabnew: str):
+    c.execute(f"""ALTER TABLE {tabold}
+                  RENAME TO {tabnew};""")
+    db.commit()
+
+
 def top_value(tab: str,
               col: str = 'sign',
               lim: str = ''):
@@ -120,3 +124,11 @@ def return_word(tab: str, wrd: str):
                   WHERE word = '{wrd}'""")
     return c.fetchall()
 
+
+def word_query(querys: str) -> list:
+    l = []
+    for i in show_tbl():
+        if check_tb_empty(i) and word_in_db(i, querys):
+            l.append((i, return_word(i, querys)[0][1]))
+        
+    return l
